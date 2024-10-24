@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle Front Controller...
+    RewriteRule ^(.*)$ public/index.php [L]
+</IfModule>
+
+# Redirect Trailing Slashes...
+<IfModule mod_dir.c>
+    DirectorySlash Off
+</IfModule>
+
+# Handle Authorization Header
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>
+
+<IfModule mod_ssl.c>
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
