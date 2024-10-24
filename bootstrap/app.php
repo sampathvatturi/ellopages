@@ -18,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
+        $middleware->validateCsrfTokens(except: [
+            // 'url',  Exclude specific routes
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
