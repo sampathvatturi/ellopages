@@ -24,7 +24,9 @@ class AuthController extends Controller
                 'u_fname' => 'required|string|max:255',
                 'u_lname' => 'required|string|max:255',
                 'u_email' => 'required|string|email|max:255|unique:tbl_users,u_email',
+                'u_phone' => 'required|number|min:10|unique:tbl_users,u_phone',
                 'u_password' => 'required|string|min:6|confirmed',
+                
             ]);
             
             if($request){
