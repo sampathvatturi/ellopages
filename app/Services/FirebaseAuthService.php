@@ -17,7 +17,7 @@ class FirebaseAuthService
     public function __construct()
     {
         $this->serviceAccount = json_decode(
-            file_get_contents(storage_path('app/private/google/service-account.json')),
+            file_get_contents(storage_path('app/private/service-account.json')),
             true
         );
         $factory = (new Factory)->withServiceAccount($this->serviceAccount);
