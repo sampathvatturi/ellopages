@@ -21,7 +21,7 @@ class UserRepository
                 'u_name' => $postData->u_fname.' '.$postData->u_lname,
                 'u_email' => $postData->u_email,
                 'u_password' => $postData->u_password,
-                'u_phone' => $postData->u_phone,
+                'u_phone' => $postData->u_phone ?? '',
                 'u_reference_id' => $postData->u_reference_id ?? 0,
             ]);
 
@@ -38,5 +38,15 @@ class UserRepository
 
     public function getUserByEmail($email){
         return $this->user->where('u_email', $email)->first();
+    }
+
+    public function updateDataByEmail($email, $newData){
+        $user = $this->getUserByEmail($email);
+        if($user){
+            $user->update($newData);
+            return true;
+        } else{
+            return false;
+        }
     }
 }

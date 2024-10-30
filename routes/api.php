@@ -8,7 +8,11 @@ use App\Http\Controllers\UserController;
 Route::middleware('throttle:api')->group(function () {
     // Define your routes here
     Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/register-apple', [AuthController::class, 'registerApple']);
     Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/validate-email', [AuthController::class, 'validateEmail']);
+    Route::post('/validate-otp', [AuthController::class, 'validateOtp']);
+    Route::post('/reset-password', [AuthController::class, 'resetPassword']);
     Route::post('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 });
 

@@ -24,5 +24,13 @@ class UserService
         else
             return null;
     }
-    
+
+    public function checkEmailExists($email){
+        $user = $this->userRepository->getUserByEmail($email);
+        if($user){
+            return true;
+        }else{
+            return false;
+        }
+    } 
 }
