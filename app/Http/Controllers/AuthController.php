@@ -105,7 +105,7 @@ class AuthController extends Controller
             ]);
             $isEmailExists = $this->userService->checkEmailExists($request->u_email);
             if($isEmailExists){
-                $sendOtp = $this->authService->sendMailOtp($request->email);
+                $sendOtp = $this->authService->sendMailOtp($request->u_email);
                 return response()->json(['status' => true,'message' => 'OTP sent.'], 200);
             }else{
                 return response()->json(['status' => false, 'message' => 'Email not exists.'], 404);
