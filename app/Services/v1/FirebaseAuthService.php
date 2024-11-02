@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Services\v1;
 
 use App\Repositories\UserRepository;
 use Firebase\JWT\JWK;

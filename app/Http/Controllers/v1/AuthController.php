@@ -1,20 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1;
 
-use App\Models\User;
-use App\Services\AuthService;
-use App\Services\FirebaseAuthService;
-use App\Services\UserService;
-use GuzzleHttp\Exception\RequestException;
+use App\Http\Controllers\Controller;
+use App\Services\v1\AuthService;
+use App\Services\v1\FirebaseAuthService;
+use App\Services\v1\UserService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Firebase\JWT\JWT;
-use Firebase\JWT\JWK;
-use GuzzleHttp\Client;
 
-class AuthController extends Controller
+class AuthController extends CommonController
 {
     protected $authService;
     protected $firebaseAuthService, $userService;
@@ -187,5 +181,4 @@ class AuthController extends Controller
             ], 401);
         }
     }
-
 }

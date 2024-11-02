@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\v1;
 
 use App\Mail\MailOtp;
 use App\Repositories\UserRepository;
