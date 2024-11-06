@@ -20,4 +20,8 @@ class Categories extends Model
     ];
 
     public $timestamps = true; // Ensure timestamps are enabled
+
+    public function listings() {
+        return $this->hasMany(Listings::class,'category_id','category_id');
+    }
 }

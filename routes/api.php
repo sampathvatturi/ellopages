@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\v1\AuthController;
 use App\Http\Controllers\v1\CategoriesController;
+use App\Http\Controllers\v1\ListingsController;
 use App\Http\Controllers\v1\UserController;
 use App\Http\Middleware\AuthenticateSanctumOrApiKey;
 use Illuminate\Http\Request;
@@ -27,6 +28,10 @@ Route::prefix('v1')->middleware(AuthenticateSanctumOrApiKey::class)->group(funct
     
     Route::controller(CategoriesController::class)->group(function () {
         Route::get('/get-categories', 'getCategories')->name('getCategories');
+    });
+
+    Route::controller(ListingsController::class)->group(function () {
+        Route::post('/get-listings-by-category', 'getListingsByCategory')->name('getListingsByCategory');
     });
 
 });
