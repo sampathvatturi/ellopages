@@ -31,4 +31,7 @@ class ListingsRepository
     public function getListingsByCategory($categoryId){
         return $this->listings->where('category_id', $categoryId)->get();
     }
+    public function getListingsBySubCategory($subCategoryId){
+        return $this->listings->where('sub_category_id', $subCategoryId)->get();
+    }
 }

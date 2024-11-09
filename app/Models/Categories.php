@@ -21,6 +21,9 @@ class Categories extends Model
 
     public $timestamps = true; // Ensure timestamps are enabled
 
+    public function subcategories() {
+        return $this->hasMany(SubCategories::class,'category_id','category_id');
+    }
     public function listings() {
         return $this->hasMany(Listings::class,'category_id','category_id');
     }

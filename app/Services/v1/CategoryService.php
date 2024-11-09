@@ -18,4 +18,19 @@ class CategoryService
     {
         return $this->categoryRepository->getAllCategories();
     }
+
+    public function getAllSubCategories()
+    {
+        return $this->categoryRepository->getAllSubCategories();
+    }
+    public function getAllSubCategoriesByCategoryIdWithCategory($categoryId)
+    {
+        $data = new \stdClass();
+        $category = $this->categoryRepository->getCategoryById($categoryId);
+        if($category){
+            $data->category = $category;
+            $data->subcategories = $category->subcategories;
+        }
+        return $data;
+    }
 }

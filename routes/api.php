@@ -28,10 +28,12 @@ Route::prefix('v1')->middleware(AuthenticateSanctumOrApiKey::class)->group(funct
     
     Route::controller(CategoriesController::class)->group(function () {
         Route::get('/get-categories', 'getCategories')->name('getCategories');
+        Route::post('/get-sub-categories', 'getSubCategories')->name('getSubCategories');
     });
 
     Route::controller(ListingsController::class)->group(function () {
         Route::post('/get-listings-by-category', 'getListingsByCategory')->name('getListingsByCategory');
+        Route::post('/get-listings-by-sub-category', 'getListingsBySubCategory')->name('getListingsBySubCategory');
     });
 
 });

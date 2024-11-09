@@ -36,4 +36,25 @@ class ListingsController extends Controller
             ], 500);
         }
     }
+    public function getListingsBySubCategory(Request $request){
+        try{
+            $request->validate([
+                'subCategoryId' =>'required|integer',
+            ]);
+
+            $subCategoryId = $request->subCategoryId;
+    
+            $response = [];
+            $listings = $this->listingService->getListingsBySubCategory($subCategoryId);
+            
+            return response()->json($listings);
+        }catch (\Exception $exception){
+            Log::info($exception);
+            return response()->json([
+               'success' => false,
+               'message' => $exception->getMessage(),
+                'error_type' => 'general_error'
+            ], 500);
+        }
+    }
 }
