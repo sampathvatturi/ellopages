@@ -5,6 +5,7 @@ namespace App\Services\v1;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ListingsRepository;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class ListingsService
 {
@@ -63,6 +64,9 @@ class ListingsService
         $data = array_map(function($value) {
             return $value === null ? '' : $value;
         }, $data);
+
+        // Add the authenticated user's ID to the data
+        $data['user_id'] = Auth::id();
 
         return $this->listingRepository->createListing($data);
     }

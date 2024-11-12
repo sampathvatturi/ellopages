@@ -17,6 +17,7 @@ class Listings extends Model
 
     // Specify fillable fields
     protected $fillable = [
+        'user_id',
         'category_id',
         'sub_category_id',
         'listing_name',
