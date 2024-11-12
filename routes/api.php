@@ -34,6 +34,7 @@ Route::prefix('v1')->middleware(AuthenticateSanctumOrApiKey::class)->group(funct
     Route::controller(ListingsController::class)->group(function () {
         Route::post('/get-listings-by-category', 'getListingsByCategory')->name('getListingsByCategory');
         Route::post('/get-listings-by-sub-category', 'getListingsBySubCategory')->name('getListingsBySubCategory');
+        Route::post('/add-listing', 'addListing')->name('addListing');
     });
 
 });
